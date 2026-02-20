@@ -1,0 +1,37 @@
+﻿@using InventopryWEB2026.Domin;
+@model List<Shelf>
+
+<h2>Shelves</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Add New Shelf</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Row</th>
+            <th>Column</th>
+            <th>Warehouse</th>
+            <th>Products Count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shelf in Model)
+        {
+            <tr>
+                <td>@shelf.RowNumber</td>
+                <td>@shelf.ColumnLetter</td>
+                <td>@shelf.Warehouse?.Name</td>
+                <td>@shelf.Products.Count</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@shelf.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@shelf.Id" class="btn btn-sm btn-danger">Delete</a>
+                    @* <a href="@Url.Action("Delete", "Shelves", new { id = shelf.Id })"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('هل أنت متأكد أنك تريد حذف هذا الرف؟');">
+                        حذف
+                    </a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

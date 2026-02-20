@@ -1,0 +1,24 @@
+﻿@using InventopryWEB2026.Domin;
+@model  Shelf
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="@ViewData["Title"]" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="RowNumber"></label>
+        <input asp-for="RowNumber" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ColumnLetter"></label>
+        <input asp-for="ColumnLetter" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="WarehouseId">Warehouse</label>
+        <select asp-for="WarehouseId" asp-items="ViewBag.Warehouses" class="form-control">
+            <option value="">-- Select Warehouse --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

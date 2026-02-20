@@ -1,0 +1,14 @@
+﻿@using InventopryWEB2026.Domin;
+@model Shelf
+
+<h2>Delete Shelf</h2>
+@* <p>Are you sure you want to delete shelf @Model.ColumnLetter@Model.RowNumber in warehouse @Model.Warehouse?.Name?</p> *@
+
+
+<h3>Conformation</h3>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
